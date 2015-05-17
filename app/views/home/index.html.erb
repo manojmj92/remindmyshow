@@ -1,0 +1,10 @@
+<%= form_tag "/home/create" , :method => :post, :remote => :true, :authenticity_token => true do %>
+  <%= text_field_tag "movie_name",nil, :id => "movie_name" %>
+  <%= text_field_tag "email",nil, :id => "email" %>
+  <%= text_field_tag "location", nil, :id => "location"%>
+  <%= submit_tag "Save" %>
+<% end %>
+
+<% javascript_tag do %>
+
+<% end %>
