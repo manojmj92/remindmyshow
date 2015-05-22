@@ -32,19 +32,17 @@ class HomeController < ApplicationController
 	end
 
 	def autosuggest_movie
-		@results = Movie.where(['name LIKE ?',"%#{params[:query]}%"]) 
-		render_json
+		@results = Movie.where(['name LIKE ?',"%#{params[:query]}%"]).limit(5) 
 	end
 
 	def autosuggest_location
-		@results = Location.where((['name LIKE ?',"%#{params[:query]}%"]))
-		render_json
+		@results = Location.where((['name LIKE ?',"%#{params[:query]}%"])).limit(5)
 	end
 
 	private
 
 	def render_json 
-		render :json => {"suggestions" => @results.as_json(:only => [:name,:id])}
+		render :json => @results.as_json(:only => [:name,:id])
 	end
 
 

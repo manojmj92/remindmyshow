@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root :to => "home#index"
   post "/create" => "home#create"
-  post "/home/check_booking_started" => "home#check_booking_started"
+  post "/booking/status" => "home#check_booking_started"
   get "/search/movie" => "home#autosuggest_movie"
   get "/search/location" => "home#autosuggest_location"
 

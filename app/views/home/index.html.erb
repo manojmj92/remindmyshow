@@ -1,10 +1,28 @@
-<%= form_tag "/home/create" , :method => :post, :remote => :true, :authenticity_token => true do %>
-  <%= text_field_tag "movie_name",nil, :id => "movie_name" %>
-  <%= text_field_tag "email",nil, :id => "email" %>
-  <%= text_field_tag "location", nil, :id => "location"%>
-  <%= submit_tag "Save" %>
-<% end %>
+<section id="hero">
 
-<% javascript_tag do %>
+<div class="forms">
+<%= form_tag "/create" , :method => :post, :id => "book_form", :remote => :true, :authenticity_token => true do %>
 
+<div id="movie_name_box"  class="">
+	<h4>Hey, shoot me an email when booking for..</h4>
+  <%= text_field_tag "movie_name",nil, :id => "movie_name", :placeholder => "Movie Name", :class => "input" %>
+ </div>
+
+
+<div id="location_box"  class="hide">
+  	<h4 id="location_description">starts at.. </h4>
+  <%= text_field_tag "location", nil, :id => "location", :placeholder => "Location", :class => "input" %>
+</div>
+
+
+<div id="email_box"  class="hide">
+  	<h4 id="email_description">My email id is..</h4>
+  <%= text_field_tag "email",nil, :id => "email", :placeholder => "Email", :autocomplete => "off", :class => "input" %>
+</div>
+
+
+<p id="thankyou" class="hide">Great! We'll shoot you an email when the booking starts!</p>
+  <%= submit_tag "Save", :class => "button hide"%>
 <% end %>
+</div>
+</section>
